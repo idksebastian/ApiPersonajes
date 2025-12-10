@@ -1,0 +1,42 @@
+<div class="detail-container">
+    @if (isLoading()) {
+        <div class="loading-detail">Cargando datos del guerrero...</div>
+    } @else if (character()) {
+        <div class="db-detail-card">
+            <div class="image-area">
+                <img [src]="character().image" alt="{{ character().name }}">
+            </div>
+            
+            <div class="info-area">
+                <h1 class="character-name">{{ character().name }}</h1>
+                
+                <div class="stat-group">
+                    <span class="stat-label">Raza:</span>
+                    <span class="stat-value">{{ character().specie }}</span>
+                </div>
+                
+                <div class="stat-group">
+                    <span class="stat-label">Ki / Poder:</span>
+                    <span class="stat-value power-level">{{ character().ki | number }}</span>
+                </div>
+
+                <div class="stat-group">
+                    <span class="stat-label">Afiliación:</span>
+                    <span class="stat-value">{{ character().affiliation }}</span>
+                </div>
+
+                <div class="stat-group">
+                    <span class="stat-label">Planeta de Origen:</span>
+                    <span class="stat-value">{{ character().originPlanet?.name || 'Desconocido' }}</span>
+                </div>
+
+                <div class="description-area">
+                    <h2>Descripción</h2>
+                    <p>{{ character().description }}</p>
+                </div>
+            </div>
+        </div>
+    } @else {
+        <div class="error-message">No se encontró información para este personaje.</div>
+    }
+</div>

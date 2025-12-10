@@ -1,0 +1,29 @@
+<div class="list-title-db">
+    <h2>Personajes de Dragon Ball Z</h2>
+    <p>¡El listado de los guerreros más poderosos!</p>
+</div>
+
+<div class="character-grid-db">
+    @if (isLoading()) {
+        <p class="loading">Cargando luchadores Z...</p>
+    } @else {
+        @for (character of characters(); track character.id) {
+            <div 
+                class="db-card" 
+                (click)="goToDetail(character.id)" 
+                tabindex="0"
+            >
+                <img [src]="character.image" alt="{{ character.name }}">
+                <div class="db-info">
+                    <h3>{{ character.name }}</h3>
+                    <p class="specie">Especie: **{{ character.specie }}**</p>
+                    <p class="power">Ki: {{ character.ki | number }}</p>
+                </div>
+            </div>
+        } 
+        
+        @empty {
+            <p class="empty-message">No se encontraron personajes de Dragon Ball.</p>
+        }
+    }
+</div>

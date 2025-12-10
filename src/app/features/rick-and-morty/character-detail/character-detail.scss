@@ -1,0 +1,81 @@
+
+
+.detail-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f7f7f7; 
+}
+
+.character-card-detail {
+    display: flex;
+    background: #000; 
+    color: #fff;
+    border: 4px solid #97ce4c; 
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .image-section {
+        flex: 1;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .info-section {
+        flex: 1.5;
+        padding: 30px;
+        h1 {
+            color: #97ce4c; 
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5d5d5d;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+
+    .label {
+        font-weight: bold;
+        color: #e0e0e0; 
+        min-width: 120px;
+    }
+
+    .value {
+        font-weight: normal;
+    }
+}
+
+
+.status {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    &.alive {
+        background-color: #97ce4c; 
+        color: #000;
+    }
+    &.dead {
+        background-color: #d63d2e; 
+        color: #fff;
+    }
+    &.unknown {
+        background-color: #9e9e9e; 
+        color: #fff;
+    }
+}

@@ -1,0 +1,28 @@
+<div class="list-header-simpsons">
+    <h2>Personajes de Springfield</h2>
+</div>
+
+<div class="simpsons-grid">
+    @if (isLoading()) {
+        <p class="loading">Cargando Springfield...</p>
+    } @else {
+        @for (character of characters(); track character.id) {
+            <div 
+                class="simpsons-card" 
+                (click)="goToDetail(character.id)" 
+                tabindex="0"
+            >
+                <img [src]="character.image" alt="{{ character.name }}">
+                <div class="simpsons-info">
+                    <h3>{{ character.name }}</h3>
+                    <p class="gender">Género: **{{ character.gender }}**</p>
+                    <p class="age">Edad: {{ character.age }}</p>
+                </div>
+            </div>
+        } 
+        
+        @empty {
+            <p class="empty-message">¡D'oh! No se encontraron personajes de Los Simpsons.</p>
+        }
+    }
+</div>

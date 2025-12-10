@@ -1,0 +1,37 @@
+<div class="simpsons-detail-container">
+    @if (isLoading()) {
+        <div class="loading-detail">Cargando datos de Springfield...</div>
+    } @else if (character()) {
+        <div class="simpsons-detail-card">
+            <div class="image-wrapper">
+                <img [src]="character().image" alt="{{ character().name }}">
+            </div>
+            
+            <div class="info-wrapper">
+                <h1 class="character-name">{{ character().name }}</h1>
+                
+                <div class="detail-group">
+                    <span class="detail-label">Género:</span>
+                    <span class="detail-value">{{ character().gender }}</span>
+                </div>
+                
+                <div class="detail-group">
+                    <span class="detail-label">Edad:</span>
+                    <span class="detail-value">{{ character().age || 'Desconocida' }}</span>
+                </div>
+                
+                <div class="detail-group">
+                    <span class="detail-label">Ocupación:</span>
+                    <span class="detail-value">{{ character().occupation }}</span>
+                </div>
+
+                <div class="description-block">
+                    <h2>Descripción</h2>
+                    <p>{{ character().description }}</p>
+                </div>
+            </div>
+        </div>
+    } @else {
+        <div class="error-message-simpsons">¡D'oh! Personaje no encontrado en Springfield.</div>
+    }
+</div>
