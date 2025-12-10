@@ -16,5 +16,5 @@ import { NavbarComponent } from './components/navbar/navbar';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'consumoapi_personajesNq';
+  title = 'consumo-api-personajes';
 }
